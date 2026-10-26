@@ -16,10 +16,8 @@ jobs:
           node-version: '24'
           cache: 'npm'
 
-      - name: Instalar dependencias
-        working-directory: ./Des
+      - name: Instalar dependencias        
         run: npm ci
 
-      - name: Validar HTML (html-validate)
-        working-directory: ./Des
+      - name: Validar HTML (html-validate)        
         run: npx html-validate index.html
