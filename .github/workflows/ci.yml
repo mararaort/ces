@@ -21,4 +21,3 @@ jobs:
 
       - name: Validar HTML (html-validate)
         run: npx html-validate index.html
-
