@@ -6,6 +6,7 @@ on:
 jobs:
   lint-and-validate:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout código
         uses: actions/checkout@v7
@@ -15,9 +16,12 @@ jobs:
         with:
           node-version: '24'
           cache: 'npm'
+          cache-dependency-path: prac1cicd/package-lock.json
 
-      - name: Instalar dependencias        
+      - name: Instalar dependencias
+        working-directory: ./prac1cicd
         run: npm ci
 
-      - name: Validar HTML (html-validate)        
+      - name: Validar HTML (html-validate)
+        working-directory: ./prac1cicd
         run: npx html-validate index.html
