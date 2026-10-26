@@ -24,3 +24,6 @@ jobs:
       - name: Validar HTML (html-validate)
         working-directory: ./prac1cicd
         run: npx html-validate index.html
+
+      - name: Linting CSS (stylelint)
+        run: npx stylelint "css/**/*.css"
