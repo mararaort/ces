@@ -20,5 +20,5 @@ jobs:
         run: npm ci
 
       - name: Validar HTML (html-validate)
-        working-directory: ./prac1cid
+        working-directory: ./Des
         run: npx html-validate index.html
