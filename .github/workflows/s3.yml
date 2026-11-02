@@ -1,3 +1,4 @@
+```yaml
 name: Copia a S3
 
 on:
@@ -21,12 +22,9 @@ jobs:
           aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
           aws-region: ${{ secrets.AWS_REGION }}
 
-      - name: Comprobar identidad de AWS
-        run: aws sts get-caller-identity
-
       - name: Copiar los archivos al bucket
         run: |
-          aws s3 sync . s3://${{ secrets.S3_BUCKET }} \
+          aws s3 sync ./prac1cicd s3://${{ secrets.S3_BUCKET }} \
             --delete \
             --exclude ".git/*" \
             --exclude ".github/*" \
@@ -37,3 +35,4 @@ jobs:
 
       - name: Mostrar el contenido del bucket
         run: aws s3 ls s3://${{ secrets.S3_BUCKET }} --recursive
+```
