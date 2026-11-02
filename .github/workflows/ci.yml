@@ -32,3 +32,5 @@ jobs:
       - name: Linting JavaScript (eslint)
         working-directory: ./prac1cicd
         run: npx eslint js/
+
+      
