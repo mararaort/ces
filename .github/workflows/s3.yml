@@ -1,3 +1,4 @@
+```yaml
 name: Copia a S3
 
 on:
@@ -18,7 +19,11 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
           aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Comprobar identidad de AWS
+        run: aws sts get-caller-identity
 
       - name: Copiar los archivos al bucket
         run: |
@@ -32,4 +37,5 @@ jobs:
             --exclude "*.cjs"
 
       - name: Mostrar el contenido del bucket
-        run: aws s3 ls s3://${{ secrets.S3_BUCKET }} --recursive a
+        run: aws s3 ls s3://${{ secrets.S3_BUCKET }} --recursive
+```
